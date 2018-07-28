@@ -1,0 +1,10 @@
+﻿@model List<VdabMovies.Models.Genre>
+
+<ul class="list-inline">
+    @foreach(var genre in Model)
+    {
+        <li class="btn-link">
+            @Html.ActionLink(genre.GenreSoort, "Verhuren", new { id = genre.GenreNr})
+        </li>
+    }
+</ul>

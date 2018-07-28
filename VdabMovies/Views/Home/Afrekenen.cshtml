@@ -1,0 +1,35 @@
+﻿@model VdabMovies.Models.Afrekening
+@{
+    ViewBag.Title = "Afrekenen";
+}
+
+<h2>Afrekenen</h2>
+@if (Model.verhuringen.Count > 0)
+{
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th class="text-center">Titel</th>
+                <th>Prijs</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var verhuur in Model.verhuringen)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(f => verhuur.Films.Titel)</td>
+                    <td>@Html.DisplayFor(f => verhuur.Films.Prijs)</td>
+                </tr>
+            }
+            <tr>
+                <td class="text-center">Totaal:</td>
+                <td>@Html.DisplayFor(k => k.Totaal)</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Wordt gefactureerd aan:</p>
+    <p>@Model.klant.ToString()</p>
+    <p>@Model.klant.Straat_Nr</p>
+    <p>@Model.klant.PostCode @Model.klant.Gemeente</p>
+}
+

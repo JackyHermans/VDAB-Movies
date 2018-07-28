@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Verhuren";
+}
+@if (ViewBag.genre == null)
+{
+    <h2>
+        Klik op het gewenste GENRE
+    </h2>
+    <div>
+        @Html.Action("GenreLijst")
+    </div>
+}
+else
+{
+    <h1>@ViewBag.genre</h1>
+    <div>
+        @Html.Action("FilmsPerGenre", "Home", new { genreid = ViewBag.genreid})
+    </div>
+}
+

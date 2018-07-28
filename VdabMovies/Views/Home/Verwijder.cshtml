@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Verwijder";
+}
+
+<h1>Verwijder gehuurde film</h1>
+<p>Ben je zeker dat je "@ViewBag.filmTitel" niet wil huren ?</p>
+<p>
+    @Html.ActionLink("JA", "Verwijderen", new { id = ViewBag.filmid }, new { @class = "btn btn-lg" })
+    @Html.ActionLink("NEEN", "Winkelmandje", null, new { @class = "btn btn-lg" })
+</p>
+

@@ -1,0 +1,30 @@
+﻿@model List<VdabMovies.Models.Film>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th class="text-center">Titel</th>
+                <th class="text-center">Prijs</th>
+                <th class="text-center">In Voorraad</th>
+                <th class="text-center">Huren</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var film in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(f => film.Titel)</td>
+                    <td>@Html.DisplayFor(f => film.Prijs)</td>
+                    <td class="text-center">@Html.DisplayFor(f => film.InVoorraad)</td>
+                    <td>
+                    @if (film.InVoorraad > 0)
+                    {
+                        @Html.ActionLink("Huren", "Winkelmandje", new { id = film.BandNr})
+                    }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+<p>
+    @Html.ActionLink("Terug naar genre overzicht", "Verhuren")
+</p>

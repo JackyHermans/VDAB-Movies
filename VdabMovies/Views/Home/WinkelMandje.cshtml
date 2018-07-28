@@ -1,0 +1,27 @@
+﻿@model List<VdabMovies.Models.Film>
+@{
+    ViewBag.Title = "WinkelMandje";
+}
+
+<h1>Winkelmandje</h1>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th class="text-center">Titel</th>
+            <th class="text-center">Prijs</th>
+            <th class="text-center">Verwijderen</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var film in Model)
+        {
+            <tr>
+                <td>@film.Titel</td>
+                <td>@Html.DisplayFor(f => film.Prijs)</td>
+                <td>@Html.ActionLink("Verwijderen", "Verwijder", new { id = film.BandNr })</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.ActionLink("Verder winkelen", "Verhuren")
+
